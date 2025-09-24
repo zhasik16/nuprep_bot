@@ -236,7 +236,7 @@ async def download_strategy_guide(query):
         "• 🧠 Master both Math and Critical Thinking sections\n"
         "• ⏱️ Manage your time during the exam\n"
         "• ⚠️ Avoid common mistakes\n\n"
-        "🔗 **Download link:** [NUET Strategy Guide](https://drive.google.com/file/d/1TkdZbY6Mjyxs7ZzY-xX36FBWdD1GTnEb/view?usp=drive_link)\n\n"
+        "🔗 **Download link:** [NUET Strategy Guide](https://t.me/nuetlesson/17)\n\n"
         "🎓 **Good luck with your preparation!** ✨"
     )
     
@@ -260,7 +260,7 @@ async def download_formula_sheet(query):
         "• 📐 Geometry theorems and formulas\n"
         "• 📏 Trigonometry identities\n"
         "• 💡 Problem-solving shortcuts\n\n"
-        "🔗 **Download link:** [Math Formula Sheet](https://drive.google.com/file/d/1UVwYfHbf29fNcC6Qh_JYp16oi1EvOxTw/view?usp=drive_link)\n\n"
+        "🔗 **Download link:** [Math Formula Sheet](https://t.me/nuetlesson/16)\n\n"
         "📝 **Perfect for quick revision before the exam!** 🚀"
     )
     
@@ -285,7 +285,7 @@ async def download_tips_guide(query):
         "• 🧠 Mental preparation techniques\n"
         "• 📈 Common pitfalls to avoid\n"
         "• 🏆 Success stories from past students\n\n"
-        "🔗 **Download link:** [NUET Preparation Tips](https://docs.google.com/document/d/14XVdINH6c71LXUk1KIGuG-2zWdPBrYxq/edit?usp=drive_link&ouid=118151104844862398117&rtpof=true&sd=true)\n\n"
+        "🔗 **Download link:** [NUET Preparation Tips](https://t.me/nuetlesson/15)\n\n"
         "🌟 **Boost your preparation with these proven strategies!**"
     )
     
@@ -310,7 +310,7 @@ async def download_roadmap(query):
         "• 🎯 Practice test timeline\n"
         "• 📈 Progress tracking system\n"
         "• 🏁 Final week preparation guide\n\n"
-        "🔗 **Download link:** [NUET Study Roadmap](https://drive.google.com/file/d/1skBpSYaPatsp2SwdZsgMKP46F7ocHaXi/view?usp=drive_link)\n\n"
+        "🔗 **Download link:** [NUET Study Roadmap](https://t.me/nuetlesson/14)\n\n"
         "🛣️ **Follow this roadmap for guaranteed success!**"
     )
     
