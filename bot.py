@@ -68,7 +68,7 @@ async def show_self_study_course(query):
         "🔄 **Step-by-step system:** Watch video → Do Homework → Pass Test (80%+) → Unlock next lesson\n"
         "⚡ **Automatic progress unlock keeps you motivated**\n"
         "🌍 **Learn anytime, anywhere**\n\n"
-        "💵 **Price:** 100,000 KZT\n"
+        "💵 **Price:** ̶1̶0̶0̶0̶0̶0̶ KZT\n"
         "🔥 **Special Offer:** Pay within 24 hours → only 50,000 KZT"
     )
     
@@ -310,8 +310,6 @@ async def download_roadmap(query):
         "• 🎯 Practice test timeline\n"
         "• 📈 Progress tracking system\n"
         "• 🏁 Final week preparation guide\n\n"
-        "🔗 **Download link:** [NUET Study Roadmap](https://t.me/nuetlesson/14)\n\n"
-        "🛣️ **Follow this roadmap for guaranteed success!**"
     )
     
     keyboard = [
