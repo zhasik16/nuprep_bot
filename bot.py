@@ -9,8 +9,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Username администраторов
-ADMIN_USERNAMES = ["@Nurbolna", "@mmagzhan1"]
+# Chat ID администраторов (числовые ID, а не username)
+ADMIN_CHAT_IDS = [8424716780, 1391461277]  # Замените на реальные chat_id администраторов
 
 # Команда /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -55,6 +55,10 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await download_strategy_guide(query)
     elif query.data == 'download_formulas':
         await download_formula_sheet(query)
+    elif query.data == 'download_tips':
+        await download_tips_guide(query)
+    elif query.data == 'download_roadmap':
+        await download_roadmap(query)
 
 # Показать Self-Study Course
 async def show_self_study_course(query):
@@ -102,13 +106,17 @@ async def show_free_materials(query):
         "🎁 **Free NUET Materials**\n\n"
         "📚 **Get free resources prepared by NUET experts:**\n"
         "• 📋 PDF Guide: NUET Prep Strategy — 7 Step Process\n"
-        "• 📊 Formula Sheet: All Key Mathematics Formulas\n\n"
+        "• 📊 Formula Sheet: All Key Mathematics Formulas\n"
+        "• 💡 Top 10 Preparation Tips\n"
+        "• 🗺️ 3-Month Study Roadmap\n\n"
         "🚀 **Download below and start your preparation today!**"
     )
     
     keyboard = [
         [InlineKeyboardButton("📥 Download NUET Strategy Guide", callback_data='download_strategy')],
         [InlineKeyboardButton("📥 Download Math Formula Sheet", callback_data='download_formulas')],
+        [InlineKeyboardButton("💡 Download Preparation Tips", callback_data='download_tips')],
+        [InlineKeyboardButton("🗺️ Download Study Roadmap", callback_data='download_roadmap')],
         [InlineKeyboardButton("⬅️ Back to Main Menu", callback_data='main_menu')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
@@ -228,12 +236,14 @@ async def download_strategy_guide(query):
         "• 🧠 Master both Math and Critical Thinking sections\n"
         "• ⏱️ Manage your time during the exam\n"
         "• ⚠️ Avoid common mistakes\n\n"
-        "🔗 **Download link:** [NUET Strategy Guide](https://example.com/nuet-strategy-guide.pdf)\n\n"
+        "🔗 **Download link:** [NUET Strategy Guide](https://drive.google.com/file/d/1TkdZbY6Mjyxs7ZzY-xX36FBWdD1GTnEb/view?usp=drive_link)\n\n"
         "🎓 **Good luck with your preparation!** ✨"
     )
     
     keyboard = [
         [InlineKeyboardButton("📊 Download Math Formula Sheet", callback_data='download_formulas')],
+        [InlineKeyboardButton("💡 Download Preparation Tips", callback_data='download_tips')],
+        [InlineKeyboardButton("🗺️ Download Study Roadmap", callback_data='download_roadmap')],
         [InlineKeyboardButton("⬅️ Back to Free Materials", callback_data='free_materials')],
         [InlineKeyboardButton("🏠 Main Menu", callback_data='main_menu')]
     ]
@@ -250,12 +260,64 @@ async def download_formula_sheet(query):
         "• 📐 Geometry theorems and formulas\n"
         "• 📏 Trigonometry identities\n"
         "• 💡 Problem-solving shortcuts\n\n"
-        "🔗 **Download link:** [Math Formula Sheet](https://example.com/nuet-formula-sheet.pdf)\n\n"
+        "🔗 **Download link:** [Math Formula Sheet](https://drive.google.com/file/d/1UVwYfHbf29fNcC6Qh_JYp16oi1EvOxTw/view?usp=drive_link)\n\n"
         "📝 **Perfect for quick revision before the exam!** 🚀"
     )
     
     keyboard = [
         [InlineKeyboardButton("📚 Download Strategy Guide", callback_data='download_strategy')],
+        [InlineKeyboardButton("💡 Download Preparation Tips", callback_data='download_tips')],
+        [InlineKeyboardButton("🗺️ Download Study Roadmap", callback_data='download_roadmap')],
+        [InlineKeyboardButton("⬅️ Back to Free Materials", callback_data='free_materials')],
+        [InlineKeyboardButton("🏠 Main Menu", callback_data='main_menu')]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    
+    await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
+
+# Скачать Tips Guide
+async def download_tips_guide(query):
+    text = (
+        "💡 **Top 10 NUET Preparation Tips**\n\n"
+        "✅ **Expert advice to maximize your score:**\n"
+        "• 🎯 How to approach different question types\n"
+        "• ⏱️ Time management strategies\n"
+        "• 🧠 Mental preparation techniques\n"
+        "• 📈 Common pitfalls to avoid\n"
+        "• 🏆 Success stories from past students\n\n"
+        "🔗 **Download link:** [NUET Preparation Tips](https://docs.google.com/document/d/14XVdINH6c71LXUk1KIGuG-2zWdPBrYxq/edit?usp=drive_link&ouid=118151104844862398117&rtpof=true&sd=true)\n\n"
+        "🌟 **Boost your preparation with these proven strategies!**"
+    )
+    
+    keyboard = [
+        [InlineKeyboardButton("📚 Download Strategy Guide", callback_data='download_strategy')],
+        [InlineKeyboardButton("📊 Download Math Formula Sheet", callback_data='download_formulas')],
+        [InlineKeyboardButton("🗺️ Download Study Roadmap", callback_data='download_roadmap')],
+        [InlineKeyboardButton("⬅️ Back to Free Materials", callback_data='free_materials')],
+        [InlineKeyboardButton("🏠 Main Menu", callback_data='main_menu')]
+    ]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    
+    await query.edit_message_text(text, reply_markup=reply_markup, parse_mode='Markdown')
+
+# Скачать Roadmap
+async def download_roadmap(query):
+    text = (
+        "🗺️ **3-Month NUET Study Roadmap**\n\n"
+        "✅ **Structured plan for optimal preparation:**\n"
+        "• 📅 Weekly study schedule\n"
+        "• 📚 Topic-by-topic breakdown\n"
+        "• 🎯 Practice test timeline\n"
+        "• 📈 Progress tracking system\n"
+        "• 🏁 Final week preparation guide\n\n"
+        "🔗 **Download link:** [NUET Study Roadmap](https://drive.google.com/file/d/1skBpSYaPatsp2SwdZsgMKP46F7ocHaXi/view?usp=drive_link)\n\n"
+        "🛣️ **Follow this roadmap for guaranteed success!**"
+    )
+    
+    keyboard = [
+        [InlineKeyboardButton("📚 Download Strategy Guide", callback_data='download_strategy')],
+        [InlineKeyboardButton("📊 Download Math Formula Sheet", callback_data='download_formulas')],
+        [InlineKeyboardButton("💡 Download Preparation Tips", callback_data='download_tips')],
         [InlineKeyboardButton("⬅️ Back to Free Materials", callback_data='free_materials')],
         [InlineKeyboardButton("🏠 Main Menu", callback_data='main_menu')]
     ]
@@ -293,10 +355,11 @@ async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     try:
         # Отправляем уведомление всем администраторам
-        for admin_username in ADMIN_USERNAMES:
+        successful_sends = 0
+        for admin_chat_id in ADMIN_CHAT_IDS:
             try:
                 await context.bot.send_message(
-                    chat_id=admin_username,
+                    chat_id=admin_chat_id,
                     text=admin_text,
                     parse_mode='Markdown'
                 )
@@ -304,19 +367,22 @@ async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 # Пересылаем файл администратору
                 if update.message.document:
                     await context.bot.send_document(
-                        chat_id=admin_username,
+                        chat_id=admin_chat_id,
                         document=update.message.document.file_id,
                         caption=f"📄 Document from {user_info['name']}"
                     )
                 elif update.message.photo:
                     await context.bot.send_photo(
-                        chat_id=admin_username,
+                        chat_id=admin_chat_id,
                         photo=update.message.photo[-1].file_id,
                         caption=f"📸 Screenshot from {user_info['name']}"
                     )
+                
+                successful_sends += 1
+                logger.info(f"✅ Notification sent to admin {admin_chat_id}")
                     
             except Exception as e:
-                logger.error(f"Error sending to admin {admin_username}: {e}")
+                logger.error(f"❌ Error sending to admin {admin_chat_id}: {e}")
         
         # Подтверждаем получение пользователю
         confirmation_text = (
@@ -328,30 +394,42 @@ async def handle_file(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"• 📛 Username: {user_info['username']}\n\n"
             f"⏳ **What's next?**\n"
             f"Admin will verify your payment and contact you within 24 hours to activate your access.\n\n"
-            f"💬 **For questions:** {', '.join(ADMIN_USERNAMES)}\n"
-            f"⏰ **Processing time:** up to 24 hours"
+            f"💬 **For questions:** Contact @Nurbolna or @mmagzhan1\n"
+            f"⏰ **Processing time:** up to 24 hours\n\n"
+            f"📊 **Notification sent to {successful_sends} admin(s)**"
         )
         
         await update.message.reply_text(confirmation_text, parse_mode='Markdown')
         
     except Exception as e:
-        logger.error(f"Error sending to admin: {e}")
+        logger.error(f"❌ Error processing file: {e}")
         await update.message.reply_text(
-            "❌ **Error occurred while sending.** Please try again later or contact " + ', '.join(ADMIN_USERNAMES),
+            "❌ **Error occurred while processing your file.** Please try again later or contact @Nurbolna or @mmagzhan1",
             parse_mode='Markdown'
         )
 
 # Обработчик текстовых сообщений
 async def handle_text(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        "📨 **To confirm your payment, please send a screenshot or PDF document.**\n"
-        "⚠️ **Don't forget to include your full name in the file caption!**",
-        parse_mode='Markdown'
-    )
+    # Если это не команда, но пользователь отправил текст вместо файла
+    if not update.message.text.startswith('/'):
+        await update.message.reply_text(
+            "📨 **To confirm your payment, please send a screenshot or PDF document.**\n"
+            "⚠️ **Don't forget to include your full name in the file caption!**\n\n"
+            "💡 **First need to select a course? Use /start command**",
+            parse_mode='Markdown'
+        )
 
 # Обработчик ошибок
 async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logger.error("❌ Error processing request:", exc_info=context.error)
+
+# Функция для получения chat_id администраторов
+async def get_admin_chat_ids(application):
+    """Функция для получения chat_id администраторов (нужно запустить один раз)"""
+    # Администраторы должны написать боту любое сообщение
+    # Затем можно посмотреть логи чтобы получить их chat_id
+    print("📝 To get admin chat IDs, ask admins to send any message to the bot")
+    print("📝 Then check the logs for their chat IDs and update ADMIN_CHAT_IDS list")
 
 # Основная функция
 def main():
@@ -366,6 +444,9 @@ def main():
     application.add_error_handler(error_handler)
     
     # Запускаем бота
+    print("✅ Bot is starting...")
+    print("⚠️ IMPORTANT: Update ADMIN_CHAT_IDS list with actual admin chat IDs")
+    print("💡 To get admin chat IDs, ask admins to send any message to the bot")
     application.run_polling()
     print("✅ Bot is running and ready! 🚀")
 
