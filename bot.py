@@ -10,7 +10,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Chat ID администраторов (числовые ID, а не username)
-ADMIN_CHAT_IDS = [8424716780, 1391461277]  # Замените на реальные chat_id администраторов
+ADMIN_CHAT_IDS = [132394442, 1391461277]  # Замените на реальные chat_id администраторов
 
 # Команда /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
